@@ -131,12 +131,99 @@ def predict(poss, ufloor, floor_type, addn_rooms, age, area, latitude, longitude
 
 predicted_price = 0
 
-st.title("Mumbai House Price Predictor")
+
+
+# Use Markdown to center-align text using CSS
+st.markdown("""
+<style>
+.centered-title {
+    text-align: center;
+    font-size: 3rem;
+    font-style: bold
+}
+
+.centered-text {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.button-glow {
+ --glow-color: rgb(217, 176, 255);
+ --glow-spread-color: rgba(191, 123, 255, 0.781);
+ --enhanced-glow-color: rgb(231, 206, 255);
+ --btn-color: rgb(100, 61, 136);
+ border: .25em solid var(--glow-color);
+ margin-bottom: 1rem;
+ align-self: center;
+ display: flex;
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+.button-glow::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+.button-glow:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 1.5em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+.button-glow:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 1.5em 1em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Center-aligned text
+st.markdown('<p class="centered-title">Mumbai House Price Predictor</p>', unsafe_allow_html=True)
+st.markdown('<p class="centered-text">An AI project that uses Random Forest Regression to predict real-estate prices '
+            'in Mumbai, India. The model was trained on data from 2023 with almost 30000 samples. It achieved an '
+            'average accuracy of 94% using Random Forest and 88% using Linear Regression respectively</p>', unsafe_allow_html=True)
+
+
+# Create a fancy GitHub link
+github_link = f'<div style="display: flex; justify-content: center;"><a href="https://github.com/Valeron-T/mumbai-real-estate-prices-predictor" target="_blank" class="link"><button class="button-glow">GitHub</button></a></div>'
+
+# Display the link using st.markdown
+st.markdown(github_link, unsafe_allow_html=True)
 
 st.markdown('<style>div.row-widget.stRadio > div{padding: 10px;}</style>', unsafe_allow_html=True)
 
 with st.form("my_form"):
-    st.write("Fill out the details accordingly and click Submit to receive a predicted price")
+    st.write("Fill out the details accordingly and click Submit to receive a predicted price.")
+    st.write("Please fill all values to get more accurate results.")
 
     col1, col2 = st.columns(2)
 
@@ -208,7 +295,7 @@ with st.form("my_form"):
     with col2:
         ameneties = st.number_input('Amenity Count', min_value=0, max_value=20)
 
-    locality = st.text_input('Locality (Eg: Borivali, Kanjurmarg)')
+    locality = st.text_input('Locality (Eg: Borivali, Kanjurmarg, Andheri)')
 
     furnishing = st.select_slider(
         'Furnishing Level',
@@ -248,3 +335,5 @@ with st.form("my_form"):
 if predicted_price > 0:
     formatted_price = locale.format_string("%d", predicted_price, grouping=True, monetary=True)
     st.write(f"Predicted price: Rs {formatted_price}")
+
+
