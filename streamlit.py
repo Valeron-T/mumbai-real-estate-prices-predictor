@@ -14,7 +14,7 @@ forest = joblib.load('model.joblib')
 encoders_dict = pkl.load(open('encoders.sav', 'rb'))
 
 # locales
-locale.setlocale(locale.LC_ALL, 'en_IN')
+# locale.setlocale(locale.LC_ALL, 'en_IN')
 
 def list_to_comma_separated_string(input_list):
     # Use the join method to concatenate list elements with commas
