@@ -9,7 +9,6 @@ from dython.nominal import correlation_ratio, associations
 from sklearn import preprocessing
 from sklearn.preprocessing import OneHotEncoder, MultiLabelBinarizer, LabelEncoder, OrdinalEncoder
 
-# forest = pkl.load(open('model.sav', 'rb'))
 forest = joblib.load('model.joblib')
 encoders_dict = pkl.load(open('encoders.sav', 'rb'))
 
