@@ -147,18 +147,30 @@ st.markdown("""
     padding-bottom: 1rem;
 }
 
+.pt-5 {
+    padding-top:5px;
+}
+
+.mt-minus-10 {
+    margin-top: -10px;
+}
+
+.text-xl {
+    font-size: 4rem;
+}
+
 a {
     text-decoration: none;
     color: #000000;
 }
-
 .button-glow {
  --glow-color: rgb(217, 176, 255);
  --glow-spread-color: rgba(191, 123, 255, 0.781);
  --enhanced-glow-color: rgb(231, 206, 255);
  --btn-color: rgb(100, 61, 136);
  border: .25em solid var(--glow-color);
- margin-bottom: 1rem;
+ margin-bottom: 3rem;
+ margin-top: 1rem;
  align-self: center;
  display: flex;
  padding: 1em 3em;
@@ -211,6 +223,8 @@ st.markdown('<p class="centered-title">Mumbai House Price Predictor</p>', unsafe
 st.markdown('<p class="centered-text">An AI project that uses Random Forest Regression to predict real-estate prices '
             'in Mumbai, India. The model was trained on data from 2023 with almost 30000 samples. It achieved an '
             'average accuracy of 94% using Random Forest and 88% using Linear Regression respectively</p>', unsafe_allow_html=True)
+st.markdown('<p class="centered-text">Note: Due to a max model/file upload size of 100MB, the model on this page has '
+            'upto 2% reduced accuracy by training at a lower depth.</p>', unsafe_allow_html=True)
 
 
 # Create a fancy GitHub link
@@ -334,6 +348,7 @@ with st.form("my_form"):
 
 if predicted_price > 0:
     formatted_price = locale.format_string("%d", predicted_price, grouping=True, monetary=True)
-    st.write(f"Predicted price: Rs {formatted_price}")
+    st.markdown('<p class="centered-text pt-5">Predicted price</p>', unsafe_allow_html=True)
+    st.markdown(f'<p class="centered-title mt-minus-10 text-xl">Rs {formatted_price}</p>', unsafe_allow_html=True)
 
 
