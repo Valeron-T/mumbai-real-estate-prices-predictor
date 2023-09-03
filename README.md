@@ -10,6 +10,10 @@ apartments as they constituted a large percentage of the dataset. Hence when pre
 apartments it tends to predict a comparatively reduced price. To conclude, this was an interesting project which
 helped learn about the various stages in using AI from data extraction to deployment to predict house prices.
 
+## Poster
+![CIA 2 AI](https://github.com/Valeron-T/mumbai-real-estate-prices-predictor/assets/32789691/e115f722-8c33-48cd-944b-0b69331ef22e)
+
+
 ## References
 Florian Dedov [NeuralNine]. (2022). House price prediction in python. YouTube.
 https://www.youtube.com/watch?v=Wqmtf9SA_kk
