@@ -17,7 +17,8 @@ helped learn about the various stages in using AI from data extraction to deploy
   ![CIA 2 AI](https://github.com/Valeron-T/mumbai-real-estate-prices-predictor/assets/32789691/e115f722-8c33-48cd-944b-0b69331ef22e)
 </details>
 
-
+## Note
+This repo only contains the deployment code with an exported model. Please reach out if you want the code for the model.
 
 
 ## References
